@@ -1,0 +1,1 @@
+from .__version__ import __company__, __version__

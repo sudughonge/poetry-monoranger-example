@@ -1,0 +1,65 @@
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "root-project"
+description = "Root Project"
+readme = "README.md"
+
+requires-python = "^3.10"
+authors = [
+     {name = "Sudarshan Ghonge", email = "sudu.ghonge@gmail.com"}
+]
+maintainers = []
+dynamic = []
+
+dependencies = [
+          "package-1",
+          "package-2",
+          "package-3",
+
+]
+version = "0.0.0"
+
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.requires-plugins]
+"poetry-plugin-export" = ">=1.9.0"
+"poetry-plugin-shell" = ">=1.0.1"
+"poetry-pre-commit-plugin" = ">=0.2.1"
+poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
+poethepoet = { version = ">=0.32.1", extras = ["poetry_plugin"] }
+poetry-monoranger-plugin = { version = ">=0.4.1,<0.5.0" }
+# Needs updates for v2
+#poetry-plugin-freeze = ">=1.1.0"
+
+
+[tool.poetry.dependencies]
+package-1 = { path = "package-1", develop = true }
+package-2 = { path = "package-2", develop = true }
+package-3 = { path = "package-3", develop = true }
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = ">=3.0.0"
+bumpver = ">=2023.1129"
+black = ">=24"
+twine = ">=5.1.1" 
+pyc-wheel = ">=1.2.7"
+poetry-lock-package = "^0.5.1" 
+
+[tool.poetry.group.tests]
+optional = true
+
+[tool.poetry.group.tests.dependencies]
+pytest = ">=8.0.0"
+pytest-cov = ">=5.0.0"
+pytest-xdist = ">=3.6.1"
+pytest-timeout = ">=2.3.1"
+pytest-mock-resources = {version = ">=2.12.0", extras = ["redis"]}
+pytest-rerunfailures = "^15.0"

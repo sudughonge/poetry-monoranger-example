@@ -1,0 +1,31 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[project]
+name = "package_3"
+description = "Package 3"
+readme = "README.md"
+requires-python = "^3.10"
+authors = [
+     {name = "Sudarshan Ghonge", email = "sudu.ghonge@gmail.com"}
+]
+maintainers = []
+dynamic = ["version"]
+dependencies = ["pandas"]
+
+
+[tool.poetry]
+packages = [
+    { include = "package_3", from = "." },
+]
+version = "0.0.0"
+
+
+[tool.poetry-monoranger-plugin]
+enabled = true
+monorepo-root = "../"
+version-pinning-rule = '=='  
+
+[tool.poetry-dynamic-versioning]
+enable = true
