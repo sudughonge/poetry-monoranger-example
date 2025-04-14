@@ -12,7 +12,7 @@ authors = [
 ]
 maintainers = []
 dynamic = ["version"]
-dependencies = ["numpy"]
+dependencies = ["numpy", "scipy"]
 
 
 [tool.poetry]
